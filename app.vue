@@ -1,4 +1,12 @@
 <template>
-  <div class="fixed z-[-1] bg-[#F2F2F2] w-full h-[100vh]"></div>
   <NuxtPage />
 </template>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  box-sizing: border-box;
+}
+</style>
