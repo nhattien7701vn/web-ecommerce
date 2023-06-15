@@ -1,28 +1,35 @@
 <template>
   <main id="main" class="mt-[100px] max-w-[100%] items-center  ">
     <section class="max-w-full bg-[#f7f7f7]">
-      <section id="hero-container" class="flex w-[1200px] h-[56vh] my-0 mx-auto">
+      <section id="hero-container" class="flex gap-[0.5rem] w-[1200px] h-[56vh] my-0 mx-auto">
         <div class="w-[25%] h-[100%] border-solid border-2 border-indigo-600">
           <h1 class="mt-[15rem]">Nav</h1>
         </div>
-        <div class="flex flex-wrap gap-[0.5rem] w-[100%] h-[100%]">
-          <a class="basis-[100%] w-[100%] h-[2rem] bg-[#FFF5E6] " href="#">The a</a>
-          <div class="flex flex-row flex-wrap gap-[0.7rem] w-[64%] h-[calc(100%-2rem-0.7rem)]">
-            <figure class="basis-[100%] h-[62%] overflow-hidden"><img class="w-full h-full rounded-[5px]"
-                src="/hero-promotion.jpg" alt="hinh anh"></figure>
-            <div class="w-[49%] h-[33%] grow bg-[#fff] rounded-[5px]">
-              <section class="w-full h-full p-[1rem] border-solid border-2 border-indigo-600">
-                <!-- COMPONENT: ItemChart -->
-                <ItemChart />
-              </section>
+        <div class="flex flex-col gap-[0.5rem] w-[100%] h-[100%]">
+          <a class="w-[100%] h-[8%] bg-[#FFF5E6] " href="#">The a</a>
+          <div class="flex flex-grow gap-[0.5rem] w-full">
+
+            <div class="flex flex-col gap-[0.5rem] justify-between w-[65%]">
+
+              <figure class="w-full h-[60%] overflow-hidden"><img class="w-full h-full rounded-[5px]"
+                  src="/hero-promotion.jpg" alt="hinh anh"></figure>
+              <div class="flex flex-grow gap-[0.7rem] flex-row w-full">
+                <div class="h-[100%] grow bg-[#fff] rounded-[5px]">
+                  COMPONENT 1
+                </div>
+                <div class="h-[100%] grow bg-[#fff] rounded-[5px]">
+                  COMPONENT 2
+                </div>
+              </div>
             </div>
-            <div class="w-[49%] h-[33%] grow bg-[#fff] rounded-[5px]">COMPONENT 2</div>
-          </div>
-          <div class="flex-grow">
-            <div class="w-full h-[50%] border-solid border-2 border-indigo-600">promotion
+
+            <div class="flex flex-col gap-[0.7rem] flex-grow">
+              <div class="w-full flex-grow border-solid border-2 border-indigo-600">promotion
+              </div>
+              <div class="w-full flex-grow border-solid border-2 border-indigo-600">promotion
+              </div>
             </div>
-            <div class="w-full h-[50%] border-solid border-2 border-indigo-600">promotion
-            </div>
+
           </div>
         </div>
       </section>
@@ -54,7 +61,7 @@
         </section>
 
         <section class="flex flex-row w-[100%] h-[10rem] border-solid border-2 border-indigo-600">
-          <h1>hot cate</h1>
+          <h1>day ne</h1>
         </section>
       </section>
     </section>
@@ -66,6 +73,7 @@
 
   <section id="footer-container" class="w-[100%] h-[50vh] b order-solid border-2 border-indigo-600">
     <h1>footer</h1>
+
   </section>
 
   <nav id="navbar-container" class="fixed z-50 top-[50%] right-0 translate-y-[-50%] w-[2.3rem] h-[15rem] bg-[#2d2d38]">
@@ -75,10 +83,11 @@
 
 <script>
 import ItemChart from '/components/ItemChart/ItemChart.vue';
+// import postApi from '/api/postApi.mjs';
 export default {
   components: {
     'ItemChart': ItemChart
   }
+
 }
 </script>
-
