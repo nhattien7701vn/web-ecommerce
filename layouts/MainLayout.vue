@@ -61,7 +61,10 @@
         </section>
 
         <section class="flex flex-row w-[100%] h-[10rem] border-solid border-2 border-indigo-600">
-          <h1>day ne</h1>
+          day ne
+          <ul>
+            <li v-for="item in items" :key="item.id">{{ item.name }}</li>
+          </ul>
         </section>
       </section>
     </section>
@@ -83,11 +86,19 @@
 
 <script>
 import ItemChart from '/components/ItemChart/ItemChart.vue';
-// import postApi from '/api/postApi.mjs';
+// const { data: products } = await useFetch.get('http://localhost:3300/products')
+// console.log("hi", products);
+
 export default {
   components: {
     'ItemChart': ItemChart
-  }
+  },
 
+
+  data() {
+    return {
+      items: []
+    };
+  },
 }
 </script>
