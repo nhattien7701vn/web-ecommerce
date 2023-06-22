@@ -1,6 +1,6 @@
 <template>
   <!-- COMPONENT: itemChart -->
-  <section class="flex flex-col w-full h-full">
+  <section class="flex flex-col w-full h-full ">
     <!-- top-container -->
     <div class="flex w-full items-center justify-between">
       <!-- top-container left -->
@@ -24,7 +24,6 @@
         <!-- count down timer  -->
         <ul :class="['flex', 'h-[24px]', 'gap-[4px]', 'text-[#ffffff]', timeFlashSale === 'true' ? '' : 'hidden']">
           <!-- REQUIRED: dateLeft: Date-->
-
           <!-- {flashSaleDayLeft} -->
           <li class="flex justify-center items-center w-[24px] text-[12px] rounded-full bg-[#000000]">21D</li>
           <li class="text-[#000000]">:</li>
@@ -42,16 +41,17 @@
       <!-- REQUIRED: seeMoreBtn: boolean-->
       <!-- if true show seeMoreBtn  -->
       <!-- else hide seeMoreBtn -->
-      <a :class="seeMoreBtn === 'true' ? '' : 'hidden'" href="#" class="text-[0.9rem]">Xem thêm</a>
+      <a :class="seeMoreBtn === 'true' ? '' : 'hidden'" href="#" class="`text-[0.9rem]`">Xem thêm</a>
+
     </div>
     <!-- list items -->
-    <!-- REQUIRED: {amountItemInLine: number, dataListItem: array} -->
-    <ul class="flex flex-row flex-wrap gap-[0.8rem]">
+    <!-- REQUIRED: {amountItemDisplay: number, dataListProduct: array} -->
+    <ul :class="`flex flex-row gap-[1%] h-full overflow-hidden ${displayInline === 'true' ? '' : 'flex-wrap'}`">
       <!-- map this array to each item -->
-      <!-- this <li> has flex-basis=calc(100%/{amountItemInLine}-gap*{amountItemInLine}) -->
-      <!-- map this array to each item -->
-      <li :style="{ flexBasis: `calc(100% / ${amountItemInLine} - 0.7rem)` }" class="flex">
-        <ItemCard :itemPrice="itemPrice" :imgItemSrc="imgItemSrc" />
+      <li v-for="product in  dataListProduct " :key="product.id"
+        :style="displayInline === 'true' ? { 'min-width': `calc(100% / ${amountItemDisplay} - 0.7%)` } : { 'max-width': `calc(100% / ${amountItemDisplay} - 0.9%)` }"
+        class="flex">
+        <ItemCard :productData=product :positionPrice="positionPrice" />
       </li>
     </ul>
   </section>
@@ -60,7 +60,7 @@
 <script>
 import ItemCard from '/components/ItemChart/ItemCard/ItemCard.vue';
 export default {
-  props: ['chartTitle', 'itemIconSeeInfo', 'timeFlashSale', 'dateLeft', 'seeMoreBtn', 'amountItemInLine', 'dataListItem', 'imgItemSrc', 'itemPrice', 'positionPrice'],
+  props: ['chartTitle', 'itemIconSeeInfo', 'timeFlashSale', 'dateLeft', 'seeMoreBtn', 'amountItemDisplay', 'dataListProduct', 'positionPrice', 'amountItemDisplay', 'displayInline'],
   components: {
     'ItemCard': ItemCard
   },
