@@ -3,7 +3,7 @@
   <!-- REQUIRED: {imgItemSrc: string, itemPrice: string, positionPrice: "left"/"center"/"right"} -->
   <a class="flex flex-col w-full h-full" href="#">
     <!-- {imgItemSrc} -->
-    <img class="w-full h-full" :src="imgItemSrc" alt="this is an image">
+    <figure class="w-[40%]"><img class="w-full h-full" :src="imgItemSrc" alt="this is an image"></figure>
     <!-- {itemPrice,positionPrice} -->
     <!-- tailwind text-{positionPrice} -->
     <p :style="{ textAlign: positionPrice }" class="w-full">{{ itemPrice }}</p>

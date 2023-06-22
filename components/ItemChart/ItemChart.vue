@@ -45,12 +45,12 @@
       <a :class="seeMoreBtn === 'true' ? '' : 'hidden'" href="#" class="text-[0.9rem]">Xem thêm</a>
     </div>
     <!-- list items -->
-    <!-- REQUIRED: {amountItem: number, dataListItem: array} -->
+    <!-- REQUIRED: {amountItemInLine: number, dataListItem: array} -->
     <ul class="flex flex-row flex-wrap gap-[0.8rem]">
       <!-- map this array to each item -->
-      <!-- this <li> has flex-basis=calc(100%/{amountItem}-gap*{amountItem}) -->
+      <!-- this <li> has flex-basis=calc(100%/{amountItemInLine}-gap*{amountItemInLine}) -->
       <!-- map this array to each item -->
-      <li :style="{ flexBasis: `calc(100% / ${amountItem} - 0.7rem)` }" class="flex">
+      <li :style="{ flexBasis: `calc(100% / ${amountItemInLine} - 0.7rem)` }" class="flex">
         <ItemCard :itemPrice="itemPrice" :imgItemSrc="imgItemSrc" />
       </li>
     </ul>
@@ -60,7 +60,7 @@
 <script>
 import ItemCard from '/components/ItemChart/ItemCard/ItemCard.vue';
 export default {
-  props: ['chartTitle', 'itemIconSeeInfo', 'timeFlashSale', 'dateLeft', 'seeMoreBtn', 'amountItem', 'dataListItem', 'imgItemSrc', 'itemPrice', 'positionPrice'],
+  props: ['chartTitle', 'itemIconSeeInfo', 'timeFlashSale', 'dateLeft', 'seeMoreBtn', 'amountItemInLine', 'dataListItem', 'imgItemSrc', 'itemPrice', 'positionPrice'],
   components: {
     'ItemCard': ItemCard
   },
