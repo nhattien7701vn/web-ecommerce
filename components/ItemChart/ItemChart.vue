@@ -6,7 +6,8 @@
       <!-- top-container left -->
       <div class="flex items-center gap-[0.5rem]">
         <!-- REQUIRED: chartTitle: sting -->
-        <a href="#" class="font-bold text-[1.5rem]">{{ chartTitle }}</a>
+        <a href="#" :style="`font-size: ${titleSize === 'small' ? '1rem' : '1.5rem'}`" class="font-bold text-[1.5rem]">{{
+          chartTitle }}</a>
         <!-- REQUIRED: itemIconSeeInfo: "<svg>...</svg>" -->
         <!-- {itemIconSeeInfo} -->
         <a :class="itemIconSeeInfo === 'true' ? 'block' : 'hidden'" href=" #">
@@ -51,7 +52,7 @@
       <li v-for="product in  dataListProduct " :key="product.id"
         :style="displayInline === 'true' ? { 'min-width': `calc(100% / ${amountItemDisplay} - 0.7%)` } : { 'max-width': `calc(100% / ${amountItemDisplay} - 0.9%)` }"
         class="flex">
-        <ItemCard :productData=product :positionPrice="positionPrice" />
+        <ItemCard :productData=product :positionPrice="positionPrice" :titleSize="titleSize"/>
       </li>
     </ul>
   </section>
@@ -60,7 +61,7 @@
 <script>
 import ItemCard from '/components/ItemChart/ItemCard/ItemCard.vue';
 export default {
-  props: ['chartTitle', 'itemIconSeeInfo', 'timeFlashSale', 'dateLeft', 'seeMoreBtn', 'amountItemDisplay', 'dataListProduct', 'positionPrice', 'amountItemDisplay', 'displayInline'],
+  props: ['chartTitle', 'itemIconSeeInfo', 'timeFlashSale', 'dateLeft', 'seeMoreBtn', 'amountItemDisplay', 'dataListProduct', 'positionPrice', 'amountItemDisplay', 'displayInline','titleSize'],
   components: {
     'ItemCard': ItemCard
   },

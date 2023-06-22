@@ -5,24 +5,24 @@
         <NavMenu :dataListCategory="categories" />
         <div class="flex flex-col gap-[0.5rem] w-[100%] h-[100%]">
 
-          <a class="w-[100%] h-[8%] bg-[#FFF5E6] " href="#">The a</a>
+          <a class="w-[100%] h-[8%] pl-[1rem] bg-[#FFF5E6] text-[15px] " href="#">(CN)Giao hàng ưu tiên Banggood miễn phí cho các đơn hàng trên 1.192.376₫</a>
 
           <div class="flex flex-grow gap-[0.5rem] w-full">
 
             <!-- HERO & FLASH DEAL -->
-            <div class="flex flex-col gap-[0.5rem] justify-between w-[65%]">
+            <div class="flex flex-col gap-[0.5rem] justify-between max-w-[65%]">
 
               <figure class="w-full h-[60%] overflow-hidden"><img class="w-full h-full rounded-[5px]"
                   src="/hero-promotion.jpg" alt="hinh anh"></figure>
               <div class="flex flex-grow gap-[0.7rem] flex-row w-full">
                 <div class="h-[100%] w-[50%] p-[0.5rem]">
                   <ItemChart chartTitle="Flash Deal" itemIconSeeInfo=false timeFlashSale=false seeMoreBtn=false
-                    :dataListProduct="products" positionPrice="left" amountItemDisplay="3" displayInline=true />
+                    :dataListProduct="products" positionPrice="center" amountItemDisplay="3" displayInline=true titleSize="small"/>
                 </div>
 
                 <div class="h-[100%] w-[50%] p-[0.5rem]">
                   <ItemChart chartTitle="Flash Deal" itemIconSeeInfo=false timeFlashSale=false seeMoreBtn=false
-                    :dataListProduct="products" positionPrice="left" amountItemDisplay="3" displayInline=true />
+                    :dataListProduct="products" positionPrice="center" amountItemDisplay="3" displayInline=true titleSize="small" />
                 </div>
               </div>
             </div>
