@@ -36,35 +36,26 @@
       <section id="content-container" class="flex-col w-[1200px] my-0 mx-auto">
         <section class="w-full p-[2%]">
           <!-- COMPONENT: itemChart -->
+
           <ItemChart chartTitle="Flash Deal" itemIconSeeInfo=false timeFlashSale=true dateLeft="" seeMoreBtn=true
-            amountItem="6" dataListItem="" imgItemSrc="/item-img.png" itemPrice="100000" positionPrice="right" />
+          amountItemInLine="6" dataListItem="" imgItemSrc="/item-img.png" itemPrice="100000" positionPrice="right" />
+
         </section>
 
-        <section class="flex flex-row w-[100%] border-solid border-2 border-indigo-600">
+        <section class="flex flex-row flex-wrap w-[100%] border-solid border-2 border-indigo-600">
 
-          <section class="w-[50%] h-[100%] border-solid border-2 border-indigo-600">
+          <section class="w-[50%] h-[100%] border-solid border-2 border-indigo-600" v-for="product in products">
             <!-- section 1 -->
             <section class="w-[100%] p-[1rem] border-solid border-2 border-indigo-600">
               <!-- COMPONENT: ItemChart -->
-              <ItemChart />
-            </section>
-          </section>
-
-          <section class="w-[50%] h-[100%] border-solid border-2 border-indigo-600">
-            <!-- section 2 -->
-            <section class="w-[100%] p-[1rem] border-solid border-2 border-indigo-600">
-              <!-- COMPONENT: ItemChart -->
-              <ItemChart />
+              <ItemCard :itemPrice="product.price" :imgItemSrc="product.image_source" />
             </section>
           </section>
 
         </section>
 
         <section class="flex flex-row w-[100%] h-[10rem] border-solid border-2 border-indigo-600">
-          day ne
-          <ul>
-            <li v-for="item in items" :key="item.id">{{ item.name }}</li>
-          </ul>
+
         </section>
       </section>
     </section>
@@ -84,21 +75,13 @@
   </nav>
 </template>
 
-<script>
+<script setup>
+definePageMeta({
+  layout: "products"
+})
+import ItemCard from '~/components/ItemChart/ItemCard/ItemCard.vue';
 import ItemChart from '/components/ItemChart/ItemChart.vue';
-// const { data: products } = await useFetch.get('http://localhost:3300/products')
-// console.log("hi", products);
-
-export default {
-  components: {
-    'ItemChart': ItemChart
-  },
-
-
-  data() {
-    return {
-      items: []
-    };
-  },
-}
+// import { ref } from "vue";
+// const productData = ref()
+const { data: products } = await useFetch('https://web-ecommerce-api.vercel.app/products')
 </script>
