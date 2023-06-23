@@ -6,7 +6,9 @@
       <!-- top-container left -->
       <div class="flex items-center gap-[0.5rem]">
         <!-- REQUIRED: chartTitle: sting -->
-        <a href="#" class="font-bold text-[1.5rem]">{{ chartTitle }}</a>
+        <a href="#" :class="`font-bold ${smallItems === 'true' ? 'text-[calc(1.5rem*0.8)]' : 'text-[1.5rem]'}`">{{
+          chartTitle
+        }}</a>
         <!-- REQUIRED: itemIconSeeInfo: "<svg>...</svg>" -->
         <!-- {itemIconSeeInfo} -->
         <a :class="itemIconSeeInfo === 'true' ? 'block' : 'hidden'" href=" #">
@@ -46,12 +48,12 @@
     </div>
     <!-- list items -->
     <!-- REQUIRED: {amountItemDisplay: number, dataListProduct: array} -->
-    <ul :class="`flex flex-row gap-[1%] h-full overflow-hidden ${displayInline === 'true' ? '' : 'flex-wrap'}`">
+    <ul :class="`flex flex-row gap-[0.9%] h-fit overflow-hidden ${displayInline === 'true' ? '' : 'flex-wrap '}`">
       <!-- map this array to each item -->
       <li v-for="product in  dataListProduct " :key="product.id"
-        :style="displayInline === 'true' ? { 'min-width': `calc(100% / ${amountItemDisplay} - 0.7%)` } : { 'max-width': `calc(100% / ${amountItemDisplay} - 0.9%)` }"
-        class="flex">
-        <ItemCard :productData=product :positionPrice="positionPrice" />
+        :style="displayInline === 'true' ? { 'min-width': `calc(100% / ${amountItemDisplay} - 0.8%)` } : { 'max-width': `calc(100% / ${amountItemDisplay} - 0.9%)`, 'margin-bottom': '1rem' }"
+        class="flex ">
+        <ItemCard :productData=product :positionPrice="positionPrice" :smallItems=smallItems />
       </li>
     </ul>
   </section>
@@ -60,7 +62,7 @@
 <script>
 import ItemCard from '/components/ItemChart/ItemCard/ItemCard.vue';
 export default {
-  props: ['chartTitle', 'itemIconSeeInfo', 'timeFlashSale', 'dateLeft', 'seeMoreBtn', 'amountItemDisplay', 'dataListProduct', 'positionPrice', 'amountItemDisplay', 'displayInline'],
+  props: ['chartTitle', 'itemIconSeeInfo', 'timeFlashSale', 'dateLeft', 'seeMoreBtn', 'amountItemDisplay', 'dataListProduct', 'positionPrice', 'amountItemDisplay', 'displayInline', 'smallItems'],
   components: {
     'ItemCard': ItemCard
   },

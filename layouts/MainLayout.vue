@@ -1,7 +1,7 @@
 <template>
   <main id="main" class="mt-[100px] max-w-[100%] items-center  ">
     <section class="max-w-full bg-[#f7f7f7]">
-      <section id="hero-container" class="flex gap-[0.5rem] w-[1200px] h-[56vh] my-0 mx-auto">
+      <section id="hero-container" class="flex gap-[0.5rem] w-[1200px] h-[59vh] my-0 mx-auto">
         <NavMenu :dataListCategory="categories" />
         <div class="flex flex-col gap-[0.5rem] w-[100%] h-[100%]">
 
@@ -15,14 +15,16 @@
               <figure class="w-full h-[60%] overflow-hidden"><img class="w-full h-full rounded-[5px]"
                   src="/hero-promotion.jpg" alt="hinh anh"></figure>
               <div class="flex flex-grow gap-[0.7rem] flex-row w-full">
-                <div class="h-[100%] w-[50%] p-[0.5rem]">
+                <div class="h-[100%] w-[50%]">
                   <ItemChart chartTitle="Flash Deal" itemIconSeeInfo=false timeFlashSale=false seeMoreBtn=false
-                    :dataListProduct="products" positionPrice="left" amountItemDisplay="3" displayInline=true />
+                    :dataListProduct="products" positionPrice="center" amountItemDisplay="3" displayInline=true
+                    smallItems=true />
                 </div>
 
                 <div class="h-[100%] w-[50%] p-[0.5rem]">
                   <ItemChart chartTitle="Flash Deal" itemIconSeeInfo=false timeFlashSale=false seeMoreBtn=false
-                    :dataListProduct="products" positionPrice="left" amountItemDisplay="3" displayInline=true />
+                    :dataListProduct="products" positionPrice="center" amountItemDisplay="3" displayInline=true
+                    smallItems=true />
                 </div>
               </div>
             </div>
@@ -44,23 +46,25 @@
         <section class="w-full p-[2%]">
           <!-- COMPONENT: itemChart -->
           <ItemChart chartTitle="Flash Deal" itemIconSeeInfo=false timeFlashSale=true dateLeft="" seeMoreBtn=true
-            :dataListProduct="products" positionPrice="left" amountItemDisplay="6" displayInline=true />
+            :dataListProduct="products" positionPrice="left" amountItemDisplay="6" displayInline=true smallItems=false />
         </section>
 
         <section class="flex flex-row flex-wrap w-[100%] ">
           <section class="w-[50%] h-full p-[1rem]">
             <ItemChart chartTitle="HOT DEAL 1" itemIconSeeInfo=false timeFlashSale=false dateLeft="" seeMoreBtn=false
-              :dataListProduct="products" positionPrice="left" amountItemDisplay="3" displayInline=true />
+              :dataListProduct="products" positionPrice="left" amountItemDisplay="3" displayInline=true
+              smallItems=false />
           </section>
           <section class="w-[50%] h-full p-[1rem]">
             <ItemChart chartTitle="HOT DEAL 2" itemIconSeeInfo=false timeFlashSale=false dateLeft="" seeMoreBtn=false
-              :dataListProduct="products" positionPrice="left" amountItemDisplay="3" displayInline=true />
+              :dataListProduct="products" positionPrice="left" amountItemDisplay="3" displayInline=true
+              smallItems=false />
           </section>
         </section>
 
         <section class="flex flex-row w-[100%] p-[1rem]">
           <ItemChart chartTitle="MENU" itemIconSeeInfo=false timeFlashSale=false dateLeft="" seeMoreBtn=true
-            :dataListProduct="products" positionPrice="left" amountItemDisplay="6" />
+            :dataListProduct="products" positionPrice="left" amountItemDisplay="6" displayInline=false smallItems=false />
         </section>
       </section>
 
