@@ -1,3 +1,31 @@
+  <script setup>
+definePageMeta({
+  layout: "products"
+})
+import ItemChart from '/components/ItemChart/ItemChart.vue';
+// import { ref } from "vue";
+// const productData = ref()
+const { data: products } = await useFetch('https://web-ecommerce-api.vercel.app/products')
+const { data: categories } = await useFetch('https://web-ecommerce-api.vercel.app/categories')
+</script>
+
+<!-- <script setup>
+import ItemChart from '/components/ItemChart/ItemChart.vue';
+import { ref, onMounted } from "vue";
+
+
+
+// const productData = ref()
+// const cateData = ref()
+const { data: productData } = await useFetch('https://web-ecommerce-api.vercel.app/products')
+const { data: cateData } = await useFetch('https://web-ecommerce-api.vercel.app/categories')
+// productData = await useFetch('https://web-ecommerce-api.vercel.app/products')
+// cateData = await useFetch('https://web-ecommerce-api.vercel.app/categories')
+console.log("1", typeof productData);
+console.log("2", typeof cateData);
+console.log("2", cateData);
+
+</script> -->
 <template>
   <main id="main" class="mt-[100px] max-w-[100%] items-center  ">
     <section class="max-w-full bg-[#f7f7f7]">
@@ -89,13 +117,3 @@
   </nav>
 </template>
 
-<script setup>
-definePageMeta({
-  layout: "products"
-})
-import ItemChart from '/components/ItemChart/ItemChart.vue';
-// import { ref } from "vue";
-// const productData = ref()
-const { data: products } = await useFetch('https://web-ecommerce-api.vercel.app/products')
-const { data: categories } = await useFetch('https://web-ecommerce-api.vercel.app/categories')
-</script>
