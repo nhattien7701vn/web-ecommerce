@@ -1,14 +1,46 @@
+<script>
+import ItemCard from '/components/ItemChart/ItemCard/ItemCard.vue';
+export default {
+  props: ['chartTitle', 'itemIconSeeInfo', 'timeFlashSale', 'dateLeft', 'seeMoreBtn', 'amountItemDisplay', 'dataListProduct', 'positionPrice', 'displayInline', 'smallItems'],
+  components: {
+    'ItemCard': ItemCard
+  },
+}
+</script>
+
+<style scoped></style>
+
+<!-- <script setup>
+import { defineProps } from 'vue';
+import ItemCard from '/components/ItemChart/ItemCard/ItemCard.vue';
+// import { Product } from '/types/product.ts'
+const props = defineProps({
+  chartTitle: String,
+  itemIconSeeInfo: Boolean,
+  timeFlashSale: Boolean,
+  dateLeft: Date,
+  seeMoreBtn: Boolean,
+  amountItemDisplay: Number,
+  // dataListProduct: [...Product],
+  positionPrice: String,
+  displayInline: Boolean,
+  smallItems: Boolean,
+  
+});
+</script>
+<style scoped></style> -->
+
 <template>
   <!-- COMPONENT: itemChart -->
-  <section class="flex flex-col w-full h-full ">
+  <section class="flex flex-col w-full">
     <!-- top-container -->
     <div class="flex w-full items-center justify-between">
       <!-- top-container left -->
-      <div class="flex items-center gap-[0.5rem]">
+      <span class="flex items-center gap-[0.5rem]">
         <!-- REQUIRED: chartTitle: sting -->
-        <a href="#" :class="`font-bold ${smallItems === 'true' ? 'text-[calc(1.5rem*0.8)]' : 'text-[1.5rem]'}`">{{
-          chartTitle
-        }}</a>
+        <a href="#" :class="`font-bold ${smallItems === 'true' ? 'text-[calc(1.5rem*0.8)]' : 'text-[1.5rem]'}`">
+          {{ chartTitle }}
+        </a>
         <!-- REQUIRED: itemIconSeeInfo: "<svg>...</svg>" -->
         <!-- {itemIconSeeInfo} -->
         <a :class="itemIconSeeInfo === 'true' ? 'block' : 'hidden'" href=" #">
@@ -16,7 +48,7 @@
             <path
               d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z"
               fill="none" stroke="#000000" stroke-width="4" stroke-linejoin="round" />
-            <path d="M21 33L30 24L21 15" stroke="#000000" stroke-width="4" stroke-linecap="round"
+            <path d="M21 33L30 24L21 15" stroke="#000000" stroke-wid  th="4" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
         </a>
@@ -38,7 +70,7 @@
           <!-- {flashSaleSecondLeft} -->
           <li class="flex justify-center items-center w-[24px] text-[12px] rounded-full bg-[#000000]">51</li>
         </ul>
-      </div>
+      </span>
 
       <!-- REQUIRED: seeMoreBtn: boolean-->
       <!-- if true show seeMoreBtn  -->
@@ -59,14 +91,3 @@
   </section>
 </template>
 
-<script>
-import ItemCard from '/components/ItemChart/ItemCard/ItemCard.vue';
-export default {
-  props: ['chartTitle', 'itemIconSeeInfo', 'timeFlashSale', 'dateLeft', 'seeMoreBtn', 'amountItemDisplay', 'dataListProduct', 'positionPrice', 'amountItemDisplay', 'displayInline', 'smallItems'],
-  components: {
-    'ItemCard': ItemCard
-  },
-}
-</script>
-
-<style scoped></style>
